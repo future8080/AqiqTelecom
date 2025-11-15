@@ -9,7 +9,7 @@ import {
 } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 import { CartItem } from "@/types/product";
-import { Minus, Plus, Trash2 } from 'lucide-react';
+import { Minus, Plus, Trash2 } from "lucide-react";
 import Image from "next/image";
 
 interface CartModalProps {
@@ -46,23 +46,10 @@ export function CartModal({
           ) : (
             <div className="space-y-4">
               {cart.map((item) => (
-                <div
-                  key={item.id}
-                  className="flex gap-4 p-4 border rounded-lg"
-                >
-                  <div className="relative w-20 h-20 flex-shrink-0 bg-muted rounded">
-                    <Image
-                      src={item.image || "/placeholder.svg"}
-                      alt={item.name}
-                      fill
-                      className="object-cover rounded"
-                    />
-                  </div>
+                <div key={item.id} className="flex gap-4 p-4 border rounded-lg">
                   <div className="flex-1 min-w-0">
                     <h4 className="font-semibold truncate">{item.name}</h4>
-                    <p className="text-sm text-muted-foreground">
-                      {item.category}
-                    </p>
+                    <p className="text-sm text-muted-foreground">{item.category}</p>
                     <p className="text-lg font-bold mt-1">${item.price}</p>
                   </div>
                   <div className="flex flex-col items-end justify-between">
@@ -78,9 +65,7 @@ export function CartModal({
                       <Button
                         variant="outline"
                         size="icon"
-                        onClick={() =>
-                          onUpdateQuantity(item.id, item.quantity - 1)
-                        }
+                        onClick={() => onUpdateQuantity(item.id, item.quantity - 1)}
                         className="h-8 w-8"
                       >
                         <Minus className="h-3 w-3" />
@@ -91,9 +76,7 @@ export function CartModal({
                       <Button
                         variant="outline"
                         size="icon"
-                        onClick={() =>
-                          onUpdateQuantity(item.id, item.quantity + 1)
-                        }
+                        onClick={() => onUpdateQuantity(item.id, item.quantity + 1)}
                         className="h-8 w-8"
                       >
                         <Plus className="h-3 w-3" />
